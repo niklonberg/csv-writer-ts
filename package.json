@@ -1,0 +1,14 @@
+{
+  "name": "csv-writer-ts",
+  "version": "1.0.0",
+  "description": "csv writer mini project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "typescript"
+  ],
+  "author": "Nikola Lønberg",
+  "license": "ISC"
+}
