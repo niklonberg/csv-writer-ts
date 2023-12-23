@@ -2,6 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CSVWriter = void 0;
 const fs_1 = require("fs");
+// TODO:
+// add delete csv file functionality
+// add parser of csv file to turn csv file into array of objects (basically the opposite)
 class CSVWriter {
     // get keys of whatever we pass in, and set the columns to those keys
     constructor(columns) {

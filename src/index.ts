@@ -1,5 +1,9 @@
 import { appendFileSync } from "fs";
 
+// TODO:
+// add delete csv file functionality
+// add parser of csv file to turn csv file into array of objects (basically the opposite)
+
 export class CSVWriter<T> {
   // get keys of whatever we pass in, and set the columns to those keys
   constructor(private columns: (keyof T)[]) {
