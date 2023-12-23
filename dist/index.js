@@ -1,28 +1,25 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.CSVWriter = void 0;
 const fs_1 = require("fs");
 class CSVWriter {
+    // get keys of whatever we pass in, and set the columns to those keys
     constructor(columns) {
         this.columns = columns;
         this.csv = this.columns.join(",") + "\n";
-    }
-    formatRow(p) {
-        return this.columns.map((col) => p[col]).join(",");
     }
     saveCSV(filename) {
         (0, fs_1.appendFileSync)(filename, this.csv);
         this.csv = "\n";
         console.log("file saved to: ", filename);
     }
-    addRows(payments) {
-        let rows = payments.map((v) => this.formatRow(v));
+    formatRow(val) {
+        return this.columns.map((col) => val[col]).join(",");
+    }
+    addRows(values) {
+        let rows = values.map((val) => this.formatRow(val));
         this.csv += rows.join("\n");
         console.log(this.csv);
     }
 }
-const writer = new CSVWriter(["to", "from", "amount", "service"]);
-writer.addRows([
-    { to: "mario", from: "luigi", amount: 500, service: "web dev work" },
-    { to: "peach", from: "toad", amount: 100, service: "cake" },
-]);
-writer.saveCSV("./data/payments.csv");
+exports.CSVWriter = CSVWriter;
